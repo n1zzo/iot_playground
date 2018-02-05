@@ -45,3 +45,7 @@ Load a script
 cp <script_name> main.py
 ampy --port /dev/ttyUSB0 put main.py
 ```
+
+## References
+
+[Forum post on heartbeat sensor](https://forum.arduino.cc/index.php?topic=209140.15)
