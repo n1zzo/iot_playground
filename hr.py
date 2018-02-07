@@ -8,28 +8,43 @@ Heart Rate Monitor
 """
 
 adc = machine.ADC(machine.Pin(32)) 
-old_value = 0.0
 max_value = 0.0
-alpha = 0.75
+is_peak = False
+beat_msec = 1
+delay = 60
+bpm = 60
 
-while True:
+def heartbeat_detected(delay):
+    global max_value
+    global is_peak
+    result = False
 
     # Read data from the sensor
     raw_value = adc.read()
+    raw_value *= (1000/delay)
 
-    # Compute Exponential Moving Average
-    value = alpha * old_value + (1-alpha) * raw_value
-    change = value - old_value
+    if raw_value * 4 < max_value:
+        max_value = raw_value * 0.8
+        print("RESET")
 
     # Peak detection
-    if change >= max_value:
-        max_value = change
-        print("  |")
+    if raw_value > max_value:
+        max_value = 1.01 * raw_value
+        return True
     else:
-        print("|")
+        max_value -= (1000/delay)
+        return False
 
-    # Max value decay
-    max_value = max_value * 0.98
+while True:
 
-    old_value = value
-    utime.sleep_ms(50)
+    # Reset sensor when no finger is detected
+    if bpm > 250:
+        bpm = 60
+
+    if heartbeat_detected(delay):
+        sampled_bpm = 60000/beat_msec
+        bpm = 0.8 * bpm + 0.2 * sampled_bpm
+        print("BPM: "+str(bpm))
+        beat_msec = 0
+    utime.sleep_ms(delay)
+    beat_msec += delay
