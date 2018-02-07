@@ -1,3 +1,6 @@
+# Main.py is used to temporarily store code before uploading to the ESP32
+main.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

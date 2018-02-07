@@ -1,5 +1,6 @@
 import utime
 import machine
+from net import Net
 
 """
 Niccolò Izzo - 2018
@@ -7,17 +8,20 @@ Niccolò Izzo - 2018
 Heart Rate Monitor
 """
 
-adc = machine.ADC(machine.Pin(32)) 
+adc = machine.ADC(machine.Pin(32))
 max_value = 0.0
 is_peak = False
 beat_msec = 1
 delay = 60
 bpm = 60
 
+payload = {"bpm": None,
+           "timestamp": None}
+
+
 def heartbeat_detected(delay):
     global max_value
     global is_peak
-    result = False
 
     # Read data from the sensor
     raw_value = adc.read()
@@ -35,6 +39,13 @@ def heartbeat_detected(delay):
         max_value -= (1000/delay)
         return False
 
+
+# Initialize network
+net = Net()
+
+while not net.is_connected():
+    utime.sleep(1)
+
 while True:
 
     # Reset sensor when no finger is detected
@@ -45,6 +56,9 @@ while True:
         sampled_bpm = 60000/beat_msec
         bpm = 0.8 * bpm + 0.2 * sampled_bpm
         print("BPM: "+str(bpm))
+        payload["bpm"] = int(bpm)
+        payload["timestamp"] = utime.localtime()
+        net.send(payload)
         beat_msec = 0
     utime.sleep_ms(delay)
     beat_msec += delay
