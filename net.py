@@ -2,16 +2,18 @@ import network
 import urequests as requests
 
 
-SSID = "wifissid"
-PW = "wifipassword"
-URL = "https://iot.polifactory.it/hr"
+SSID = "NESLab2.4GHz"
+PW = "DeanBarker"
+URL = "https://iot.polifactory.it/"
 HEADERS = {"Content-type": "application/json"}
 
 
 class Net:
     sta_if = None
+    service_name = None
 
-    def __init__(self):
+    def __init__(self, service_name):
+        self.service_name = service_name
         self.sta_if = network.WLAN(network.STA_IF)
         self.sta_if.active(True)
         self.connect(SSID, PW)
@@ -27,6 +29,11 @@ class Net:
         return self.sta_if.ifconfig()
 
     def send(self, data):
-        post = requests.post(URL, json=data, headers=HEADERS)
+        post = requests.post(URL+service_name, json=data, headers=HEADERS)
         print(post.content)
         post.close()
+
+    def get(self):
+        response = requests.get(URL+self.service_name, headers=HEADERS)
+        return response.json()
+
