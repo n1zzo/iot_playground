@@ -13,26 +13,28 @@ Marco Attanasio
 
 ---
 
-## What is IoT
+## Cos'è l'IoT
 
-- New trend of IT
-- Spread computing power across small devices
+- La moda corrente
+- Distrubuzione dei compiti
+- Interconnessione
 - Ubiquitous computing
 
 ----
 
-## Low Power Consumption
+## Basso Consumo Energetico
 
-- Essential to guarantee low-cost operation
-- Allows to run on battery for several years
-- Low thermal profile
+- Essenziale per un mantenimento a basso costo
+- Una batteria può durare diversi anni
+- Minor generazione di potenza termica
 
 ----
 
 ## Energy Harvesting
 
-- Reduces mainainance cost in harsh environments
-- Solar panels, mainly
+- Riduce i costi di manutenzione
+- Efficace in ambienti aspri
+- Principalmente pannelli solari
 
 ----
 
@@ -49,9 +51,9 @@ Marco Attanasio
 
 ## Middleware Technologies
 
-- Useful to control dataflows
-- Only chance to traverse NATs
-- Combine different devices
+- Utili per il controllo dei dataflow
+- Modo più facile per attraversare i NAT
+- Permettono di combinare dispositivi differenti
 
 ----
 
@@ -69,16 +71,15 @@ Marco Attanasio
 ## CPU Architectures
 
 - ARM
-    - The CPU of your smartphone
-    - Medium cost
-    - High performances
+    - La CPU del tuo smartphone
+    - Costo intermedio
+    - Elevate prestazioni
 - AVR
-    - Arduino CPU
-    - Low cost
-    - Limited performances
+    - CPU dell'arduino
+    - Basso costo
+    - Prestazioni limitate
 - x86
-    - A mediocre architecture
-    - Bad idea for embedded systems
+    - Una pessima idea per l'IoT
 
 ---
 
@@ -92,43 +93,6 @@ Marco Attanasio
 - Facile da usare
 - Estremamente diffuso
 - Moduli per qualunque cosa
-
-----
-
-## C
-
-```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello, world!\n");
-    return 0;
-}
-```
-
-----
-
-## Java
-
-```java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Goodbye, world!");
-    }
-}
-```
-
-----
-
-## Python
-
-```python
-print('Hello, world!')
-```
-
-----
-
-![import antigravity](https://imgs.xkcd.com/comics/python.png)
 
 ----
 
@@ -879,83 +843,6 @@ def f(a, b=3, c=6):
 
 ----
 
-## Scoping
-
-- Lo scoping modifica la **visibilità** delle variabili
-- Le variabili definite all'interno di uno scope sono accessbili solo al
-  suo interno
-- Gli scope sono definiti da funzioni, classi e moduli
-- Le classi sono contenitori di funzioni e di variabili
-- I moduli sono contenitori di classi, di funzioni e di variabili
-
-----
-
-```
->>> x = 'globale'
->>> def f():
-...     x = 'locale'
-```
-
-```
->>> f()
->>> print(x)
-globale
-```
-
-- All'interno della funzione `f()` viene creata una seconda varibile di nome `x`
-  accessibile solo all'interno della funzione
-- La variabile `x` **all'interno della funzione** è chiamata **locale**
-- La variabile `x` **al di fuori della funzione** è chiamata **globale**
-- Sono due variabili **diverse**
-
-----
-
-Se all'interno della funzione non è stato usato il nome di una variabile
-globale è possibile accedere ad essa in lettura.
-
-```
->>> x = 'globale'
->>> def f():
-...     print(x)
->>> f()
-globale
-```
-
-Tuttavia non è possibile modificarla.
-
-```
->>> x = 'globale'
->>> def f():
-...    print(x)
-...    x = 'variabile ' + x
->>> f()
-UnboundLocalError: local variable 'x' referenced before assignment
-```
-
-L'interprete ci informa che stiamo chiamando una variabile `x` che non è stata
-assegnata. Infatti dentro la funzione la variabile `x` non esiste.
-
-----
-
-### Evadere dallo scope
-
-È tuttavia possibile accedere in scrittura a una variabile globale,
-specificandolo esplicitamente con l'istruzione **`global`**.
-
-```
->>> x = 'globale'
->>> def f():
-...    global x
-...    print(x)
-...    x = 'variabile ' + x
-...    print(x)
->>> f()
-globale
-variabile globale
-```
-
-----
-
 ## None
 
 - Equivale al `NULL` di C
@@ -1112,102 +999,11 @@ Gattuso
 
 ----
 
-## Aprire i file
-
-```python
-f = open("documento.txt", "w")
-f.write("contenuto")
-f.close()
-```
-
-
-- `open(filename, mode)` ritorna un riferimento al file
-- Il parametro `mode` specifica la  modalità
-
-| mode  | descrizione                     |
-| :---- | :------------------------------ |
-| r     | Apertura in sola lettura        |
-| w     | Apertura in sola scrittura      |
-| r+    | Apertura in lettura e scrittura |
-| a     | Scrittura in coda               |
-
-----
-
-## Usare i file
-
-- Per scrivere su un file
-```
->>> f = open("documento.txt", "w")
->>> f.write("Contenuti serissimi.")
-20
->>> f.close()
-```
-- Per leggere da un file
-```
->>> f = open("documento.txt", "r")
->>> f.read()
-'Contenuti serissimi.'
->>> f.close()
-```
-- I metodi `readline` e `writeline` leggono e scrivono una riga alla volta
-- Ricordiamoci di chiudere sempre il file con la funzione `close()`
-
-----
-
-## Una scorciatoia
-
-```python
-with open("documento.txt", "w") as f:
-	f.write("contenuto")
-```
-
-- All'interno del blocco, `f` è un riferimento al file
-- Non serve chiudere esplicitamente
-- Se vengono sollevati errori o eccezioni il file viene chiuso
-
-----
-
-## Guardiamoci le spalle
-
-- Cosa succede apriamo un file che non esiste?
-
-```
->>> f = open("documento.rtf", "r")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-FileNotFoundError: [Errno 2] No such file or directory ...
-```
-- L'interprete solleva un errore
-- Abbiamo la possibilità di prevenire un problema!
-
-----
-
-## Errori
-
-- Sono condizioni eccezionali che possono verificarsi
-- Vanno gestite con blocchi `try ... except`
-```
->>> try:
-...     f = open("documento.txt", "r")
-... except FileNotFoundError:
-...     print("Acciderba, questo file non esiste! Lo creo.")
-...     f = open("documento.txt", "w")
-```
-- Possiamo lanciarli a nostra volta
-```
->>> raise Exception("No internet connection!")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-Exception: No internet connection!
-```
-
-----
-
 ## `import this`
 
 ---
 
-# Sending and visualizing data (2 hours)
+# Sending and visualizing data
 
 ----
 
