@@ -10,9 +10,15 @@ Marco Attanasio
 
 `marco.attanasio@mail.polimi.it`
 
-![64K Logo](./img/64klogo.png)
-
 ---
+
+## 64K
+
+Il **Computer Club** di Polifactory.
+
+![64K](img/64K.svg)
+
+----
 
 ## Cos'è l'IoT
 
@@ -448,12 +454,11 @@ lista = [False, 1, "due", 3.0, 4, 5]
 
 ```
 >>> lista = [0.0, 1, "due", 3.0, 4, 5, 'sei']
-```
-
-```
 >>> lista[2:5]
 ['due', 3.0, 4]
 ```
+
+----
 
 - È possibile indicare tutti gli elementi dall'inizio o fino alla fine di una
   lista omettendone l'indice
@@ -657,7 +662,7 @@ al posto dell'indice.
 
 ```
 >>> d['nome']
-'Tancredi'
+'Niccolò'
 ```
 
 ```
@@ -867,8 +872,7 @@ def f(a, b=3, c=6):
 ```
 >>> f()
 funzione
->>> x = f()
->>> x
+>>> f()
 None
 ```
 
@@ -1096,7 +1100,7 @@ Lo useremo per creare le interfacce web dei vostri progetti
 
 # Brainstorming
 
-Avrete a disposizione i seguenti sensori:
+Avrete a disposizione i seguenti **sensori**:
 - Joystick, Flame Sensor, Heartbeat Sensor, Light Cup Sensor, Hall Sensor,
 Linear Hall Sensor, Tilt Switch, Temperature Sensor, Sound Sensor, Touch Sensor,
 Ball Switch, Button, Photoresistor, Track Sensor, Reed Switch, Shock Sensor,
@@ -1106,7 +1110,7 @@ IR Receiver, Avoidance Sensor, Tap Module, Rotary Encoder
 
 # Brainstorming
 
-I seguenti attuatori:
+I seguenti **attuatori**:
 - RGB LED, Relay, Color Flash LED, Two Color LED, Laser Emitter, IR Emitter,
 Buzzer
 
@@ -1116,13 +1120,29 @@ e [tanto altro](https://github.com/toddmotto/public-apis#transportation)
 
 ---
 
+# La Piattaforma
+
+----
+
+# ESP32
+
+----
+
+# Pinout
+
+----
+
+# MicroPython
+
+---
+
 # Electronics 101
 
 ----
 
 ## Voltage and Current
 
-Due punti di un circuito sono ad un diverso **voltaggio(o potenziale)** se, rispetto ad un riferimento, possiedono un diverso accumulo di carica.  
+Due punti di un circuito sono ad un diverso **voltaggio (o potenziale)** se, rispetto ad un riferimento, possiedono un diverso accumulo di carica.
 Se due punti a differente voltaggio sono collegati tra di loro si genera un movimento di cariche che tende ad annullare la loro differenza di potenziale, ossia, si genera una **corrente**.
 
 ----
@@ -1139,7 +1159,7 @@ Alcuni degli elementi che utilizzeremo durante il laboratorio sono:
 - resistors
 - leds
 - lasers
-- photoresistors 
+- photoresistors
 - ADC
 - GPIO
 - PWM
@@ -1148,11 +1168,17 @@ Alcuni degli elementi che utilizzeremo durante il laboratorio sono:
 
 ## Resistors and photoresistors
 
-Il resistore è l'elemento più semplice presente in un circuito; la sua caratteristica principale è la "resistenza" (**R**) definita come il rapporto tra la tensione applicata ai suoi capi e la corrispondente corrente generata: **R=V/I**   
-Un photoresistor è un resistore che modifica la sua **R** in funzione della luce a cui è esposto:   
+Il resistore è l'elemento più semplice presente in un circuito; la sua caratteristica principale è la "resistenza" (**R**) definita come il rapporto tra la tensione applicata ai suoi capi e la corrispondente corrente generata:
+
+**R=V/I**
+
+Un photoresistor è un resistore che modifica la sua **R** in funzione della luce a cui è esposto:
+
 **maggiore intensità luminosa = minore R**
 
 ----
+
+## Un resistore
 
 ![resistor](img/resistor.svg)
 
@@ -1160,8 +1186,10 @@ Un photoresistor è un resistore che modifica la sua **R** in funzione della luc
 
 ## LEDs
 
-I Light Emitting Diodes sono dispositivi realizzati attraverso la giunzione tra due blocchi di particolari materiali chiamati "semiconduttori a gap diretto"(come il GaAs).  
-La particolarità di tali dispositivi è quella di emettere fotoni(luce) se alimentati da una determinata potenza( nel nostro caso, circa 2V ai loro capi e una corrente di qualche milliAmpere).  
+I Light Emitting Diodes sono realizzati attraverso la giunzione tra due particolari materiali, chiamati "semiconduttori a gap diretto" e.g GaAs.
+
+Essi emettono fotoni(luce) se alimentati da una determinata potenza (circa 2V ai loro capi e una corrente di qualche mA).
+
 **La luce di un LED non presenta una direzione predominante di emissione.**
 
 ----
@@ -1172,83 +1200,134 @@ La particolarità di tali dispositivi è quella di emettere fotoni(luce) se alim
 
 ## Lasers
 
-Il principio secono il quale un laser emette luce è molto simile a quello di un LED, tuttavia, grazie a particolari accorgimenti di carattere geometrico nella loro struttura interna, la luce da loro emessa risulta essere ben definita in termini di lunghezze d'onda(colore) e **possiede una direzione preferenziale molto marcata.**
+Un laser emette luce in maniera simile ad un LED
+
+Particolari accorgimenti geometrici rendono la luce da loro emessa ben definita in termini di lunghezze d'onda (colore).
+
+La luce dei laser presenta una **direzione preferenziale molto marcata.**
+
+----
+
+## Signals
+
+Esistono due tipi di segnali:
+- **Analogici**
+    - Possono assumere qualunque valore in qualunque istante di tempo
+    - Sono rappresentati da una grandezza fisica e.g. tensione
+- **Digitali**
+    - Sono segnali discreti nei valori e nel tempo
+    - Hanno una certa frequenza e una quantità di bit per campione
 
 ----
 
 ## ADC
 
-Gli **A**nalog-to-**D**igital **C**onverter sono gli strumenti che permettono la comunicazione tra dispositivi che utilizzano il linguaggio digitale(binario) e il mondo esterno, in cui l'informazione non si limita ad assumere valori discreti ma può, potenzialmente, assumere qualsiasi valore in qualsiasi istante di tempo.  
-Alcuni pin del modulo che utilizzeremo sono dotati di questi dispositivi.  
+Gli **A**nalog-to-**D**igital **C**onverter permettono di tradurre un segnale analogico in uno digitale
+
+## DAC
+
+I **D**igital-to-**A**nalog **C**onverter permettono di tradurre un segnale digitale in uno analogico
+
+Alcuni pin del modulo che utilizzeremo sono dotati di questi dispositivi.
 
 ----
 
 ## Funzionamento ADC
-  
-Il funzionamento di un ADC può essere essenzialmente scomposto in due operazioni fondamentali:
 
-1. Campionamento del segnale
-2. Quantizzazione delle ampiezze  
-  
+Il funzionamento di un ADC può essere scomposto in due operazioni fondamentali:
+
+1. **Campionamento** del segnale
+2. **Quantizzazione** delle ampiezze
+
 ----
 
 ### Campionamento del segnale
 
-Dato in ingresso un segnale tempo variabile, il primo passo da fare è quello di prelevarne dei campioni in modo da trasformarlo nel suo equivalente a tempo discreto, tale operazione corrisponde a "salvare" il suo valore ogni **T** secondi.  
-In questo caso **T** è chiamato "Periodo di Campionamento" e il suo inverso **F=1/T** "Frequenza di campionamento";  
-Si dimotra che, per non avere perdita di informazione, si deve campionare ad una frequenza almeno doppia rispetto a quella del segnale in ingresso.
+Campionare un segnale analogico consiste nel prelevare dei campioni ad un intervallo di tempo costante **T**
+Così facendo otterremo il suo equivalente a tempo discreto.
+
+**T = Periodo di Campionamento**
+
+**f = 1/T = Frequenza di Campionamento**
+
+Per non perdere informazione, la frequenza di campionamento deve essere almeno doppia rispetto a quella del segnale in ingresso.
 
 ----
 
-![camp_signal](img/campionament.png)
+![camp_signal](img/sampling.svg)
 
 ----
 
 ### Quantizzazione delle ampiezze
 
-Per fare in modo che il nostro segnale campionato possa effettivamente essere interpretato da un dispositivo digitale, come il nostro modulo ESP32, ciascun campione deve essere convertito in una "parola digitale", ossia, un numero il cui valore è proporzionale al segnale "fisico" di ingresso.
-   
-----
-
-![quantizzazione](img/adc_quant.png)
+Per far interpretare il **segnale campionato** al nostro modulo **ESP32**, ciascun campione deve essere convertito in una *parola digitale*, ossia, un numero **proporzionale** all'ampiezza del segnale in ingresso.
 
 ----
 
-## GPIO 
-
-Ogni microcontrollore fornisce un certo numero di porte(pin) esposte, tuttavia, non tutte le porte possono svolgere le stesse funzioni.  
-I pin **G**eneral **P**urpose **I**nput/**O**utput possono essere utilizzati sia come input per segnali digitali provenienti da una periferica o un dispositivo esterno, sia come output per controllare tali dispositivi.
+![quantizzazione](img/adc.svg)
 
 ----
 
-## PWM 
+## GPIO
 
-Per capire in cosa consiste un segnale PWM partiamo dalla definizione di "duty cycle":  
-Data un'onda quadra periodica di periodo T, il duty cycle corrisponde alla percentuale di tale periodo in cui il segnale assume il valore "alto"
+Ogni microcontrollore fornisce un certo numero di porte (*pin*).
+
+Non tutte le porte possono svolgere le stesse funzioni.
+
+I pin **G**eneral **P**urpose **I**nput/**O**utput possono essere utilizzati sia come **input** per segnali digitali
+provenienti da un dispositivo esterno, sia come **output** per controllarlo.
+
+----
+
+## Duty Cycle
+
+Data un'onda quadra di periodo **T**, il duty cycle corrisponde alla percentuale di tale periodo in cui il segnale assume il valore **alto**.
 
 ![duty_cycle](img/duty_cycle.svg)
 
 ----
-   
-**Un segnale PWM è un'onda quadra con duty cycle variabile.**   
-Alcuni pin del nostro modulo hanno tale funzione implementata via hardware e possono, quindi, simulare un segnale di questo tipo.  
+
+## PWM
+
+Un segnale **PWM** è un'**onda quadra** con **duty cycle variabile**.
+
+Alcuni pin del nostro modulo possono generare un segnale di questo tipo.
+
+Essi sono indicati nel *pinout* dalla dicitura *pwm* o dal simbolo *~*.
 
 ----
 
 ### LED RGB e PWM
 
-Un LED RGB è composto da tre unità che emettono rispettivamente luce rossa, verde e blu.  
-Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel tempo la percentuale di rosso, verde e blu emessa dal LED; possiamo quindi emettere un'intera gamma di colori diversi, ciascuno corrispondente ad una diversa combinazione dei tre fondamentali.   
-      
+Un LED RGB è composto da tre unità che emettono rispettivamente luce rossa, verde e blu.
+
+Alimentando ciascuna unità con un segnale PWM,
+**variamo nel tempo la percentuale** di rosso, verde e blu emessa dal LED.
+
+Possiamo quindi emettere un'intera gamma di colori diversi,
+ciascuno corrispondente ad una diversa combinazione dei tre fondamentali.
 
 ----
 
-# Useful advices
- 
-- **collegamento di un led ad un pin del modulo:**  
- il nostro modulo fornisce in uscita dai sui pin 3.3V ma i nostri led sviluppano ai loro capi solo (circa) 2V, è quindi necessario interporre un resistore tra il pin e il LED per evitare un sovraccarico di corrente.  
-- **collegamento dei sensori al modulo:**    
- per motivi del tutto analoghi, quando si connette uno dei sensori all'alimentazione, occorre assicurarsi che in esso siano già integrate delle resistenze e, in caso contrario, aggiungerle esternamente.
+## Cose da NON fare
+
+- **Collegamento di un led ad un pin:**
+    - il nostro modulo genera segnali digitali a 3.3V
+    - i nostri led sviluppano ai loro capi solo ~2V
+    - per **bilanciare le tensioni** dovremo aggiungere un resistore del valore corretto
+    - altrimenti **bruceremo l'ESP32**
+
+----
+
+## Cose da NON fare
+
+- **Non fare collegamenti con ESP32 alimentato**
+    - prima di alimentare l'ESP32 chiedere il nostro aiuto 
+- **Non creare cortocircuiti**
+    - non connettere **mai** direttamente tra loro 5V, 3.3V, o altri pin
+- **Attenzione ai sensori**
+    - alcuni sensori vanno alimentati a 5V
+    - in quel caso chiedete il nostro aiuto
 
 ---
 
@@ -1256,7 +1335,7 @@ Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel t
 
 ----
 
-# Setup Windows
+## Setup Windows
 
 - Aprire "Gestione dispositivi"
 - Selezionare il gruppo "Porte (COM e LPT)"
@@ -1271,10 +1350,12 @@ Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel t
 
 ----
 
-# Da dove iniziare?
+## Da dove iniziare?
 
-- Collegate la scheda
-- Aprite una console seriale
-- Iniziate a far funzionare i vostri sensori/attuatori
+- Scegliete i sensori da usare
+- Provate a farli funzionare singolarmente
+    - Collegate la scheda al PC
+    - Aprite una console seriale
+    - Scrivete il vostro codice nella REPL
 
 ----
