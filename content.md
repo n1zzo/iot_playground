@@ -1094,6 +1094,28 @@ Lo useremo per creare le interfacce web dei vostri progetti
 
 ---
 
+# Brainstorming
+
+Avrete a disposizione i seguenti sensori:
+- Joystick, Flame Sensor, Heartbeat Sensor, Light Cup Sensor, Hall Sensor,
+Linear Hall Sensor, Tilt Switch, Temperature Sensor, Sound Sensor, Touch Sensor,
+Ball Switch, Button, Photoresistor, Track Sensor, Reed Switch, Shock Sensor,
+IR Receiver, Avoidance Sensor, Tap Module, Rotary Encoder
+
+----
+
+# Brainstorming
+
+I seguenti attuatori:
+- RGB LED, Relay, Color Flash LED, Two Color LED, Laser Emitter, IR Emitter,
+Buzzer
+
+E tutti i servizi che il web vi mette a disposizione:
+- Weather, Transportation, Sunrise/Sunset, [Milano Open Data](https://dati.comune.milano.it/)
+e [tanto altro](https://github.com/toddmotto/public-apis#transportation)
+
+---
+
 # Electronics 101
 
 ----
@@ -1214,5 +1236,13 @@ Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel t
 - Selezionare "Append CR-LF" nel campo "Transmitted test"
 - Deselezionare Local echo
 - Premere OK
+
+----
+
+# Da dove iniziare?
+
+- Collegate la scheda
+- Aprite una console seriale
+- Iniziate a far funzionare i vostri sensori/attuatori
 
 ----
