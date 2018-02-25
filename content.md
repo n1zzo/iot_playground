@@ -1021,6 +1021,106 @@ Gattuso
 
 # Electronics 101
 
+----
+
+## Basic elements
+
+Alcuni degli elementi che utilizzeremo durante il laboratorio sono:
+
+
+- resistors
+- leds
+- lasers
+- photoresistors 
+- ADC
+- GPIO
+- PWM
+
+----
+
+## Resistors and photoresistors
+
+Il resistore è l'elemento più semplice presente in un circuito; la sua caratteristica principale è la "resistenza" (**R**) definita come il rapporto tra la tensione applicata ai suoi capi e la corrispondente corrente generata: **R=V/I**   
+Un photoresistor è un resistore che modifica la sua **R** in funzione della luce a cui è esposto:   
+**maggiore intensità luminosa = minore R**
+
+----
+
+## LEDs
+
+I Light Emitting Diodes sono dispositivi realizzati attraverso la giunzione tra due blocchi di particolari materiali chiamati "semiconduttori a gap diretto"(come il GaAs).  
+La particolarità di tali dispositivi è quella di emettere fotoni(luce) se alimentati da una determinata potenza( nel nostro caso, circa 2V ai loro capi e una corrente di qualche milliAmpere).  
+La luce di un LED non presenta una direzione predominante di emissione.
+
+----
+
+## Lasers
+
+Il principio secono il quale un laser emette luce è molto simile a quello di un LED, tuttavia, grazie a particolari accorgimenti di carattere geometrico nella loro struttura interna, la luce da loro emessa risulta essere ben definita in termini di lunghezze d'onda(colore) e possiede una direzione preferenziale molto marcata.
+
+----
+
+## ADC
+
+Gli Analog-to-Digital Converter sono gli strumenti che permettono la comunicazione tra dispositivi che utilizzano il linguaggio digitale(binario) e il mondo esterno, in cui l'informazione non si limita ad assumere valori discreti ma può, potenzialmente, assumere qualsiasi valore in qualsiasi istante di tempo.  
+Alcuni pin del modulo che utilizzeremo sono dotati di questi dispositivi.  
+
+----
+
+## Funzionamento ADC
+  
+Il funzionamento di un ADC può essere essenzialmente scomposto in due operazioni fondamentali:
+
+1. Campionamento del segnale
+2. Quantizzazione delle ampiezze  
+  
+----
+
+### Campionamento del segnale
+
+Dato in ingresso un segnale tempo variabile, il primo passo da fare è quello di prelevarne dei campioni in modo da trasformarlo nel suo equivalente a tempo discreto, tale operazione corrisponde a "salvare" il suo valore ogni **T** secondi.  
+In questo caso **T** è chiamato "Periodo di Campionamento" e il suo inverso **F=1/T** "Frequenza di campionamento";  
+Si dimotra che, per non avere perdita di informazione, si deve campionare ad una frequenza almeno doppia rispetto a quella del segnale in ingresso.
+
+----
+
+### Quantizzazione delle ampiezze
+
+Per fare in modo che il nostro segnale campionato possa effettivamente essere interpretato da un dispositivo digitale, come il nostro modulo ESP32, ciascun campione deve essere convertito in una "parola digitale", ossia, un numero il cui valore è proporzionale al segnale "fisico" di ingresso.
+   
+----
+
+## GPIO 
+
+Ogni microcontrollore fornisce un certo numero di porte(pin) esposte, tuttavia, non tutte le porte possono svolgere le stesse funzioni.  
+I pin General Purpose Input/Output possono essere utilizzati sia come input per segnali digitali provenienti da una periferica o un dispositivo esterno, sia come output per controllare tali dispositivi.
+
+----
+
+## PWM 
+
+Per capire in cosa consiste un segnale PWM partiamo dalla definizione di "duty cycle":  
+Data un'onda quadra periodica di periodo T, il duty cycle corrisponde alla percentuale di tale periodo in cui il segnale assume il valore "alto"   
+**Un segnale PWM è un'onda quadra con duty cycle variabile.**   
+Alcuni pin del nostro modulo hanno tale funzione implementata via hardware e possono, quindi, simulare un segnale di questo tipo.  
+
+----
+
+### LED RGB e PWM
+
+Un LED RGB è composto da tre unità che emettono luce rossa, verde e blu.  
+Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel tempo la percentuale di rosso, verde e blu emessa dal LED; possiamo quindi emettere un'intera gamma di colori diversi, ciascuno corrispondente ad una diversa combinazione dei tre fondamentali.   
+      
+
+----
+
+# Useful advices
+ 
+- **collegamento di un led ad un pin del modulo:**  
+ il nostro modulo fornisce in uscita dai sui pin 3.3V ma i nostri led sviluppano ai loro capi solo (circa) 2V, è quindi necessario interporre un resistore tra il pin e il LED per evitare un sovraccarico di corrente.  
+- **collegamento dei sensori al modulo:**    
+ per motivi del tutto analoghi, quando si connette uno dei sensori all'alimentazione, occorre assicurarsi che in esso siano già integrate delle resistenze e, in caso contrario, aggiungerle esternamente.
+
 ---
 
 # Hands On (6 hours)
