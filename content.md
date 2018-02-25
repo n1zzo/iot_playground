@@ -1,5 +1,6 @@
 # CRASH COURSE
-## Physical Computing - Coding - IoT
+### Physical Computing
+### Coding - IoT
 
 Niccolò Izzo
 
@@ -80,6 +81,12 @@ Marco Attanasio
     - Prestazioni limitate
 - x86
     - Una pessima idea per l'IoT
+
+----
+
+# Generico Dispositivo
+
+![Schema Funzionale di un Generico Dispositivo](img/functional_scheme.svg)
 
 ---
 
@@ -639,8 +646,8 @@ La sintesi è anche espressività
 ```python
 d = {
     "chiave": "valore",
-    "nome":"Tancredi",
-    "cognome":"Orlando",
+    "nome":"Marco",
+    "cognome":"Attanasio",
     ('immutable', 'types'): ['are', 'cool']
     }
 ```
@@ -791,6 +798,8 @@ Hello world!
 - I parametri sono i dati in ingresso di una funzione
 - I parametri diventano variabili visibili all'interno della funzione per essere
   usati
+
+----
 
 ## Valore di ritorno
 
@@ -1009,13 +1018,79 @@ Gattuso
 
 ## Wi-Fi
 
+- Chiamato anche **IEEE 802.11** (a, b, g, n, ac)
+- Lavora su frequenze 2.4GHz e 5GHz
+- Access Point creano reti con nome (**SSID**) e **password**
+- Client si connettono tramite SSID e password
+
 ----
 
 ## REST
 
+**REpresentational State Transfer**, è un'architettura software
+per la comunicazione su internet.
+
+- Due metodi:
+    - **GET** per richiedere dati
+    - **POST** per inviare dati
+
+- Invio di dati sotto forma di **JSON**
+
 ----
 
-## freeboard
+## JSON
+
+È un **formato testuale** di interscambio di dati, simile ad un **dizionario** Python
+
+
+```
+{
+	"key": "value",
+	"active": true,
+	"theAnswer": 42,
+	"time": {
+		"hours": 10,
+		"minutes": 22,
+	},
+	"exampleList": [ "it", "en" ]
+}
+```
+
+Per crearne uno in Python
+
+```
+import json
+json.dumps(content)
+```
+
+----
+
+## Risposte HTTP
+
+- Ad ogni richiesta segue una risposta:
+    - **200 OK**
+    - **301 Moved Permanently**
+    - **404 Not Found**
+    - **500 Internal Server Error**
+    - Trovate l'elenco completo [qui](https://it.wikipedia.org/wiki/Codici_di_stato_HTTP)
+
+----
+
+## Node-RED
+
+**Flow-based programming for the IoT**
+
+- Creato da IBM
+- Open-source
+- Lo trovate su [iot.polifactory.it](https://iot.polifactory.it)
+
+Lo useremo per creare le interfacce web dei vostri progetti
+
+----
+
+## Patch Example
+
+![Nodered Example](img/nodered.png)
 
 ---
 
@@ -1155,6 +1230,21 @@ Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel t
 
 ---
 
-# Hands On (6 hours)
+# Hands On
+
+----
+
+# Setup Windows
+
+- Aprire "Gestione dispositivi"
+- Selezionare il gruppo "Porte (COM e LPT)"
+- Prendere nota del numero di porta COM e.g. COM7
+- Aprire termite
+- Aprire il tasto "Settings"
+- Selezionare la porta corretta
+- Inserire 115200 nel campo "Baud rate"
+- Selezionare "Append CR-LF" nel campo "Transmitted test"
+- Deselezionare Local echo
+- Premere OK
 
 ----
