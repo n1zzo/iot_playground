@@ -1126,17 +1126,41 @@ e [tanto altro](https://github.com/toddmotto/public-apis#transportation)
 
 # ESP32
 
+È un microcontrollore *system on a chip* alimentato a 3.3V.
+- Ha un processore dual-core 32-bit
+- 532KB SRAM (Arduino ne ha 2KB), 4MB Flash
+- **Wi-Fi** 802.11 b/g/n
+- **Bluetooth** v4.2 e BLE
+- 26 **GPIO**
+- 12 **ADC**
+
 ----
 
 # Pinout
+
+![LOLIN32 Pinout](img/lolin32_pinout.png)
 
 ----
 
 # MicroPython
 
+È un **interprete** di Python per microcontrollori
+- **Già installato** sulla vostra ESP32
+- Espone una **REPL** sulla porta seriale
+- Permette di controllare tutto l'hardware della scheda
+- Molti moduli già inclusi
+
 ---
 
 # Electronics 101
+
+----
+
+## Esempi di Codice
+
+Ogni concetto che spiegheremo avrà del codice MicroPython relativo.
+
+Tutti gli esempi di codice li trovate [qui](https://github.com/n1zzo/iot_playground/wiki/Code-Examples).
 
 ----
 
@@ -1357,5 +1381,24 @@ ciascuno corrispondente ad una diversa combinazione dei tre fondamentali.
     - Collegate la scheda al PC
     - Aprite una console seriale
     - Scrivete il vostro codice nella REPL
+
+----
+
+## Come scrivere il proprio codice sulla scheda
+
+- Scrivere il vostro codice completo in un file chiamato `main.py`.
+- Con il terminale muovetevi nella cartella contenente il codice
+- Utilizzate il seguente comando:
+
+```
+ampy --port <porta_seriale> put main.py
+```
+
+Sostituite `<porta_seriale>` con il nome della porta seriale
+assegnata alla vostra scheda, e.g. `COM7` o `/dev/ttyUSB0`.
+
+---
+
+# Buon Lavoro!
 
 ----
