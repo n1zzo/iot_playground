@@ -1120,6 +1120,17 @@ e [tanto altro](https://github.com/toddmotto/public-apis#transportation)
 
 ----
 
+## Voltage and Current
+
+Due punti di un circuito sono ad un diverso **voltaggio(o potenziale)** se, rispetto ad un riferimento, possiedono un diverso accumulo di carica.  
+Se due punti a differente voltaggio sono collegati tra di loro si genera un movimento di cariche che tende ad annullare la loro differenza di potenziale, ossia, si genera una **corrente**.
+
+----
+
+![V_&_I](img/voltage.png)
+
+----
+
 ## Basic elements
 
 Alcuni degli elementi che utilizzeremo durante il laboratorio sono:
@@ -1143,23 +1154,31 @@ Un photoresistor è un resistore che modifica la sua **R** in funzione della luc
 
 ----
 
+![resistor](img/resistor.svg)
+
+----
+
 ## LEDs
 
 I Light Emitting Diodes sono dispositivi realizzati attraverso la giunzione tra due blocchi di particolari materiali chiamati "semiconduttori a gap diretto"(come il GaAs).  
 La particolarità di tali dispositivi è quella di emettere fotoni(luce) se alimentati da una determinata potenza( nel nostro caso, circa 2V ai loro capi e una corrente di qualche milliAmpere).  
-La luce di un LED non presenta una direzione predominante di emissione.
+**La luce di un LED non presenta una direzione predominante di emissione.**
+
+----
+
+![led](img/LED.svg)
 
 ----
 
 ## Lasers
 
-Il principio secono il quale un laser emette luce è molto simile a quello di un LED, tuttavia, grazie a particolari accorgimenti di carattere geometrico nella loro struttura interna, la luce da loro emessa risulta essere ben definita in termini di lunghezze d'onda(colore) e possiede una direzione preferenziale molto marcata.
+Il principio secono il quale un laser emette luce è molto simile a quello di un LED, tuttavia, grazie a particolari accorgimenti di carattere geometrico nella loro struttura interna, la luce da loro emessa risulta essere ben definita in termini di lunghezze d'onda(colore) e **possiede una direzione preferenziale molto marcata.**
 
 ----
 
 ## ADC
 
-Gli Analog-to-Digital Converter sono gli strumenti che permettono la comunicazione tra dispositivi che utilizzano il linguaggio digitale(binario) e il mondo esterno, in cui l'informazione non si limita ad assumere valori discreti ma può, potenzialmente, assumere qualsiasi valore in qualsiasi istante di tempo.  
+Gli **A**nalog-to-**D**igital **C**onverter sono gli strumenti che permettono la comunicazione tra dispositivi che utilizzano il linguaggio digitale(binario) e il mondo esterno, in cui l'informazione non si limita ad assumere valori discreti ma può, potenzialmente, assumere qualsiasi valore in qualsiasi istante di tempo.  
 Alcuni pin del modulo che utilizzeremo sono dotati di questi dispositivi.  
 
 ----
@@ -1181,23 +1200,36 @@ Si dimotra che, per non avere perdita di informazione, si deve campionare ad una
 
 ----
 
+![camp_signal](img/campionament.png)
+
+----
+
 ### Quantizzazione delle ampiezze
 
 Per fare in modo che il nostro segnale campionato possa effettivamente essere interpretato da un dispositivo digitale, come il nostro modulo ESP32, ciascun campione deve essere convertito in una "parola digitale", ossia, un numero il cui valore è proporzionale al segnale "fisico" di ingresso.
    
 ----
 
+![quantizzazione](img/adc_quant.png)
+
+----
+
 ## GPIO 
 
 Ogni microcontrollore fornisce un certo numero di porte(pin) esposte, tuttavia, non tutte le porte possono svolgere le stesse funzioni.  
-I pin General Purpose Input/Output possono essere utilizzati sia come input per segnali digitali provenienti da una periferica o un dispositivo esterno, sia come output per controllare tali dispositivi.
+I pin **G**eneral **P**urpose **I**nput/**O**utput possono essere utilizzati sia come input per segnali digitali provenienti da una periferica o un dispositivo esterno, sia come output per controllare tali dispositivi.
 
 ----
 
 ## PWM 
 
 Per capire in cosa consiste un segnale PWM partiamo dalla definizione di "duty cycle":  
-Data un'onda quadra periodica di periodo T, il duty cycle corrisponde alla percentuale di tale periodo in cui il segnale assume il valore "alto"   
+Data un'onda quadra periodica di periodo T, il duty cycle corrisponde alla percentuale di tale periodo in cui il segnale assume il valore "alto"
+
+![duty_cycle](img/duty_cycle.svg)
+
+----
+   
 **Un segnale PWM è un'onda quadra con duty cycle variabile.**   
 Alcuni pin del nostro modulo hanno tale funzione implementata via hardware e possono, quindi, simulare un segnale di questo tipo.  
 
@@ -1205,7 +1237,7 @@ Alcuni pin del nostro modulo hanno tale funzione implementata via hardware e pos
 
 ### LED RGB e PWM
 
-Un LED RGB è composto da tre unità che emettono luce rossa, verde e blu.  
+Un LED RGB è composto da tre unità che emettono rispettivamente luce rossa, verde e blu.  
 Assegnando ad ognuna di queste unità un segnale di controllo PWM, variamo nel tempo la percentuale di rosso, verde e blu emessa dal LED; possiamo quindi emettere un'intera gamma di colori diversi, ciascuno corrispondente ad una diversa combinazione dei tre fondamentali.   
       
 
