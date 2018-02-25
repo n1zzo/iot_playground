@@ -1188,7 +1188,7 @@ Per fare in modo che il nostro segnale campionato possa effettivamente essere in
    
 ----
 
-![quantizzazione](img7adc_quant.png)
+![quantizzazione](img/adc_quant.png)
 
 ----
 
