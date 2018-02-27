@@ -29,7 +29,7 @@ class Net:
         return self.sta_if.ifconfig()
 
     def send(self, data):
-        post = requests.post(URL+service_name, json=data, headers=HEADERS)
+        post = requests.post(URL+self.service_name, json=data, headers=HEADERS)
         print(post.content)
         post.close()
 
