@@ -2,8 +2,8 @@ import network
 import urequests as requests
 
 
-SSID = "NESLab2.4GHz"
-PW = "DeanBarker"
+SSID = "64K-legacy"
+PW = "sessantaquattrokappa"
 URL = "https://iot.polifactory.it/"
 HEADERS = {"Content-type": "application/json"}
 
