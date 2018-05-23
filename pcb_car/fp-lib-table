@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name L293D)(type Legacy)(uri "$(KIPRJMOD)/libraries/L293D/L293D.mod")(options "")(descr ""))
+  (lib (name Wemos)(type KiCad)(uri "$(KIPRJMOD)/libraries/kicad-wemos/Wemos.pretty")(options "")(descr ""))
+  (lib (name GY-521)(type Legacy)(uri "$(KIPRJMOD)/libraries/GY-521.mod")(options "")(descr ""))
+)

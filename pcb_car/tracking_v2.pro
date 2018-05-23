@@ -1,4 +1,4 @@
-update=21/05/2018 23.25.41
+update=Wed 23 May 2018 01:48:13 PM CEST
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=libraries
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -61,6 +61,6 @@ LibName29=opto
 LibName30=atmel
 LibName31=contrib
 LibName32=valves
-LibName33=C:/Users/marco atta/Desktop/64k/Progetti KiCad/Tracking/gy-521
-LibName34=C:/Users/marco atta/Desktop/64k/Progetti KiCad/Tracking/L293D
-LibName35=C:/Users/marco atta/Desktop/64k/Progetti KiCad/Tracking/wemos
+LibName33=libraries/L293D
+LibName34=libraries/wemos
+LibName35=libraries/gy-521
