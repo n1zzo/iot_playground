@@ -550,9 +550,9 @@ Wire Wire Line
 	6885 3990 6995 3990
 Wire Wire Line
 	6995 3990 6995 3900
-Text GLabel 5885 3965 1    60   Input ~ 0
-IN2_B
 Text GLabel 6485 3970 1    60   Input ~ 0
+IN2_B
+Text GLabel 5885 3965 1    60   Input ~ 0
 EN1_B
 Text GLabel 6085 3970 1    60   Input ~ 0
 IN3_B
