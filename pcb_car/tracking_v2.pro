@@ -1,4 +1,4 @@
-update=Wed 23 May 2018 01:48:13 PM CEST
+update=06/06/2018 16.19.54
 version=1
 last_client=kicad
 [pcbnew]
@@ -64,3 +64,13 @@ LibName32=valves
 LibName33=libraries/L293D
 LibName34=libraries/wemos
 LibName35=libraries/gy-521
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
